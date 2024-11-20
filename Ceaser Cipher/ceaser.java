@@ -16,6 +16,8 @@ public static void main(String[] args) {
 
      ArrayList<String> quotes = new ArrayList<>();
         try {
+
+            // 
             File file = new File("C:\\Users\\HP\\Desktop\\GitHub\\Basic-Ciphers\\Ceaser Cipher\\quotes.txt");
             Scanner fileScanner = new Scanner(file);
 
