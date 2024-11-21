@@ -124,6 +124,7 @@ public static void main(String[] args) {
                 int randomIndex = random.nextInt(quotes.size());
                 System.out.println("[-] "+quotes.get(randomIndex));
                 System.out.print("[-] Exiting....");
+                userinput.close();
                 System.exit(0);
             break;
             
