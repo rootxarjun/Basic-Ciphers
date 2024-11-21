@@ -1,89 +1,139 @@
-# Ceaser Cipher Program Documentation
+# *Caesar Cipher Documentation*
 
-## Overview
-This program implements the **Ceaser Cipher**, a basic encryption technique that shifts letters of the alphabet by a specified key. The program supports:
-1. **Encryption**: Converting plaintext to ciphertext.
-2. **Decryption**: Converting ciphertext back to plaintext.
-3. **Brute-Force**: Identifying the encryption key by comparing plaintext and ciphertext.
+## *Overview*
 
----
+This Java program implements the Caesar Cipher encryption, decryption, and brute-force attack techniques. The program is interactive and menu-driven, allowing users to easily choose their desired operation. Additionally, it displays random motivational quotes upon exiting.
 
-## Features
-1. **Encryption**: Shift plaintext characters using a key.
-2. **Decryption**: Reverse the encryption using the same key.
-3. **Brute-Force**: Find the encryption key by comparing inputs.
-4. **Quotes**: Random motivational quote on exit.
+## *Features*
 
----
+- *Encryption*: Encrypts plaintext messages using a shift key.
+- *Decryption*: Decrypts ciphertext messages using the same key.
+- *Brute-Force*: Determines the key by comparing plaintext and ciphertext.
+- *Random Quotes*: Displays a motivational quote from a file on exit.
+- *Error Handling*: Handles invalid inputs gracefully.
 
-## Input and Output Examples
+## *Requirements*
 
-### 1. **Encryption**
-- **Input**:  
-  - Plaintext: `Hello`  
-  - Key: `5`
-- **Output**:  
-  - Ciphertext: `Mjqqt`
+- Java Development Kit (JDK)
+- A text file containing quotes (quotes.txt) in the specified directory.
 
-### 2. **Decryption**
-- **Input**:  
-  - Ciphertext: `Mjqqt`  
-  - Key: `5`
-- **Output**:  
-  - Plaintext: `Hello`
+## *Usage*
 
-### 3. **Brute-Force**
-- **Input**:  
-  - Plaintext: `Hello`  
-  - Ciphertext: `Mjqqt`  
-- **Output**:  
-  - Key: `5`
+### *Compiling and Running*
 
----
+1. Save the code to a file named ceaser.java.
+2. Ensure the quotes file is present at the specified path in the code.
+3. Compile and run the program using:
+   bash
+   javac ceaser.java
+   java ceaser
+   
 
-## How It Works
+### *Menu Options*
 
-### 1. **Encryption**  
-Shifts each character of the plaintext by the encryption key.  
-- **Example**:  
-  Plaintext: `Hello`  
-  Key: `5`  
-  Encryption Formula:  
-  - `Encrypted_Char = (Char + Key) mod 26`  
-  Result: `Mjqqt`
+Upon running the program, you will see the following menu:
 
-### 2. **Decryption**  
-Shifts each character of the ciphertext in reverse by the same key.  
-- **Example**:  
-  Ciphertext: `Mjqqt`  
-  Key: `5`  
-  Decryption Formula:  
-  - `Decrypted_Char = (Char - Key + 26) mod 26`  
-  Result: `Hello`
+1. *Encryption*: Encrypts a plaintext message using a shift key.
+2. *Decryption*: Decrypts a ciphertext message using a shift key.
+3. *Brute-Force*: Finds the key by comparing plaintext and ciphertext.
+4. *Exit*: Exits the program and displays a random motivational quote.
 
-### 3. **Brute-Force**  
-Tries every possible key (0-25) to match the provided ciphertext to the plaintext.  
-- **Example**:  
-  Plaintext: `Hello`  
-  Ciphertext: `Mjqqt`  
-  Output: Key = `5`
+## *Functions*
 
----
+### **1. main(String[] args)**
 
-## Program Components
+- *Description*: Entry point of the program. Handles the interactive menu and calls other functions.
+- *Parameters*: String[] args - Command-line arguments (not used).
 
-### 1. **Menu**  
-The program provides a menu with four options:
-- Encryption
-- Decryption
-- Brute-Force
-- Exit  
+### **2. encrypt(String plaintext, int key)**
 
-### 2. **Error Handling**  
-- Handles invalid inputs and provides prompts for correction.
-- Ensures the key is within the valid range (0-25).
+- *Description*: Encrypts plaintext by shifting characters based on the given key.
+- *Parameters*:
+  - plaintext (String): The text to encrypt.
+  - key (int): The shift key (0–25).
+- *Returns*: Encrypted ciphertext (String).
 
-### 3. **File Handling**  
-Reads motivational quotes from `quotes.txt` and displays a random one when the program exits.
+### **3. decrypt(String cipher_text, int cipher_key)**
 
----
+- *Description*: Decrypts ciphertext by reversing the shift applied during encryption.
+- *Parameters*:
+  - cipher_text (String): The text to decrypt.
+  - cipher_key (int): The shift key (0–25).
+- *Returns*: Decrypted plaintext (String).
+
+### **4. brute_force(String plain_text, String cipher_Text, int key)**
+
+- *Description*: Attempts to match the ciphertext with the plaintext using all possible keys.
+- *Parameters*:
+  - plain_text (String): The original plaintext.
+  - cipher_Text (String): The ciphertext to match.
+  - key (int): The current key being tested.
+- *Returns*: The valid key (int) if found, otherwise -1.
+
+## *Error Handling*
+
+- *Invalid Key Input*: Ensures that encryption and decryption keys are between 0–25.
+- *Input Mismatch*: Prevents crashes when non-numeric inputs are provided for numeric prompts.
+
+## *Random Quotes Feature*
+
+- The program reads motivational quotes from a quotes.txt file located at:
+  
+  C:\Users\HP\Desktop\GitHub\Basic-Ciphers\Ceaser Cipher\quotes.txt
+  
+- A random quote is displayed upon exiting the program.
+
+## *Example Usage*
+
+### *Encryption*
+
+Input:
+
+
+[-] Enter Plain Text: hello
+[-] Enter Encryption Key: 3
+
+
+Output:
+
+
+[-] Encrypted Text is: khoor
+
+
+### *Decryption*
+
+Input:
+
+
+[-] Enter Cipher Text: khoor
+[-] Enter Cipher Key: 3
+
+
+Output:
+
+
+[-] Decrypted Text: hello
+
+
+### *Brute-Force*
+
+Input:
+
+
+[-] Enter Plain Text: hello
+[-] Enter Cipher Text: khoor
+
+
+Output:
+
+
+[-] Valid Key is: 3
+
+
+## *Author*
+
+Developed as an educational implementation of the Caesar Cipher algorithm by *@rootxarjun*.
+
+## *License*
+
+This program is free to use for educational purposes.
