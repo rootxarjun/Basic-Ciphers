@@ -62,7 +62,7 @@ public class multiplicativeCipher {
                         continue;
                     }
                     // String decrypted = decrypt(cipher_text, cipher_key);
-                    System.out.print("[-] Decrypted Text: " + decrypted + "\n");
+                    //System.out.print("[-] Decrypted Text: " + decrypted + "\n");
                     break;
 
                 // This case if for Brute-Forcing..
