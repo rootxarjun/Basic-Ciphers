@@ -40,7 +40,7 @@ public class multiplicativeCipher {
                         continue;
                     }
 
-                    //String encrypted = encrypt(plaintext, encrypt_key);
+                    String encrypted = encrypt(plaintext, encrypt_key);
                     System.out.print("[-] Encrypted Text is: " + encrypted + "\n");
                     break;
 
@@ -102,6 +102,28 @@ public class multiplicativeCipher {
             }
         }
 
+    }
+
+
+
+    public static String encrypt(String plaintext, int key) {
+        StringBuilder ciphertext = new StringBuilder();
+        for (int i = 0; i < plaintext.length(); i++) {
+            char ch = plaintext.charAt(i);
+
+            // Check for the case of the character..
+            if (Character.isUpperCase(ch)) {
+                char c1 = (char) ((ch * key - 'A') % 26 + 'A');
+                ciphertext.append(c1);
+            } else if (Character.isLowerCase(ch)) {
+                char c1 = (char) ((ch * key - 'a') % 26 + 'a');
+                ciphertext.append(c1);
+            } else {
+                ciphertext.append(ch);
+            }
+
+        }
+        return ciphertext.toString();
     }
     
 }
